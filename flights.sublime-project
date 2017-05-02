@@ -1,0 +1,18 @@
+{
+    "folders":
+    [
+        {
+            "file_exclude_patterns":
+            [
+                "*.diff",
+                "*.min.js",
+                "*.js.map",
+            ],
+            "folder_exclude_patterns":
+            [
+                "node_modules"
+            ],
+            "path": "."
+        }
+    ]
+}

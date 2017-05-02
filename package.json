@@ -4,17 +4,27 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+		"test": "jest",
+		"dev": "isDev=1 webpack-dev-server",
+		"prod": "isDev=0 webpack --watch"
 	},
 	"dependencies": {
 		"react": "16.0.0-alpha.6",
 		"react-native": "0.44.0"
 	},
 	"devDependencies": {
+		"babel-core": "^6.24.1",
 		"babel-jest": "19.0.0",
+		"babel-loader": "^7.0.0",
+		"babel-preset-es2015": "^6.24.1",
+		"babel-preset-react": "^6.24.1",
 		"babel-preset-react-native": "1.9.1",
+		"babel-preset-stage-0": "^6.24.1",
 		"jest": "19.0.2",
-		"react-test-renderer": "16.0.0-alpha.6"
+		"react-hot-loader": "^3.0.0-beta.6",
+		"react-test-renderer": "16.0.0-alpha.6",
+		"webpack": "^2.4.1",
+		"webpack-dev-server": "^2.4.5"
 	},
 	"jest": {
 		"preset": "react-native"
