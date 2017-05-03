@@ -23,7 +23,7 @@ if (isDev) { /* there's really no need to write dev bundle files to disk so we s
                 'react-hot-loader/patch',
                 `webpack-dev-server/client?${devhost}`,
                 'webpack/hot/only-dev-server',
-                './web/index',
+                './index.web.js',
             ]
         },
         output: {
@@ -65,7 +65,7 @@ if (isDev) { /* there's really no need to write dev bundle files to disk so we s
     prodBundles = {
         devtool: 'cheap-source-map',
         entry: {
-            app: './web/index'
+            app: './index.web.js'
         },
         output: {
             path: `${scripts}/build`,

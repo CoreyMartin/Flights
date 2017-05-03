@@ -12,19 +12,17 @@ import {
   View
 } from 'react-native';
 
+import { app } from './shared/constants';
+
 export default class Flights extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          {app.name}
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+          {app.welcomeMsg}
         </Text>
       </View>
     );
