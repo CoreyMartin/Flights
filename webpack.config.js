@@ -37,14 +37,17 @@ if (isDev) { /* there's really no need to write dev bundle files to disk so we s
         module: {
             loaders: [{
                 test: /\.js$/,
-                use: ['babel-loader'],
+                loader: 'babel-loader',
                 /* we need exclude to make webpack run much faster. otherwise it traverses
                    the dependency tree and tries to recompile all files e.g. react and its
                    dependecies when those modules are included in our JS with `require` or `import`.
                    we only need to transpile our files. see this answer for more
                    info http://stackoverflow.com/a/37833072 */
                 exclude: [/node_modules/],
-                include: path.join(__dirname, 'web')
+                query: {
+                    presets: ['es2015', 'stage-0', 'react'],
+                    plugins: ['react-hot-loader/babel']
+                }
             }]
         },
         devServer: {
@@ -89,9 +92,16 @@ if (isDev) { /* there's really no need to write dev bundle files to disk so we s
         module: {
             loaders: [{
                 test: /\.js$/,
-                use: ['babel-loader'],
-                /* see explanation above for why we need exclude */
-                exclude: [/node_modules/]
+                loader: 'babel-loader',
+                /* we need exclude to make webpack run much faster. otherwise it traverses
+                   the dependency tree and tries to recompile all files e.g. react and its
+                   dependecies when those modules are included in our JS with `require` or `import`.
+                   we only need to transpile our files. see this answer for more
+                   info http://stackoverflow.com/a/37833072 */
+                exclude: [/node_modules/],
+                query: {
+                    presets: ['es2015', 'stage-0', 'react']
+                }
             }]
         }
     }
