@@ -1,5 +1,6 @@
 var webpack = require('webpack'),
     path = require('path'),
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
     entries, testEntries,
     scripts = `${__dirname}/web`,
     devBundles, prodBundles, bundles,
@@ -32,7 +33,7 @@ if (isDev) { /* there's really no need to write dev bundle files to disk so we s
             publicPath: `${devhost}/`
         },
         plugins: [
-            new webpack.HotModuleReplacementPlugin()
+            new webpack.HotModuleReplacementPlugin(),
         ],
         module: {
             loaders: [{
@@ -87,7 +88,13 @@ if (isDev) { /* there's really no need to write dev bundle files to disk so we s
                 compressor: {
                     warnings: false
                 }
-            })
+            }),
+            new CopyWebpackPlugin([
+                {
+                    context: 'app',
+                    from: { glob: 'fonts/**' }
+                }
+            ])
         ],
         module: {
             loaders: [{
