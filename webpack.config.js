@@ -92,7 +92,8 @@ if (isDev) { /* there's really no need to write dev bundle files to disk so we s
             new CopyWebpackPlugin([
                 {
                     context: 'app',
-                    from: { glob: 'fonts/**' }
+                    from: { glob: 'fonts/**' },
+                    from: { glob: 'img/**' }
                 }
             ])
         ],
