@@ -29,6 +29,7 @@
 		"jest": "19.0.2",
 		"react-dom": "16.0.0-alpha.6",
 		"react-hot-loader": "^3.0.0-beta.6",
+		"react-native-button": "^1.8.2",
 		"react-test-renderer": "16.0.0-alpha.6",
 		"webpack": "^2.4.1",
 		"webpack-dev-server": "^2.4.5"
