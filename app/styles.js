@@ -1,5 +1,7 @@
-export const colors = {
-    button: 'rgb(0, 102, 146)'
+export const webOnly = {
+    bgImg: {
+        background: 'url(img/cloud.png) 50% 50% / contain no-repeat'
+    }
 }
 
 export default {
@@ -64,11 +66,5 @@ export default {
     },
     buttonText: {
         color: 'black'
-    }
-}
-
-export const webOnly = {
-    bgImg: {
-        background: 'url(img/cloud.png) 50% 50% / contain no-repeat'
     }
 }
