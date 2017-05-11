@@ -1,15 +1,8 @@
-export const webOnly = {
-    bgImg: {
-        background: 'url(img/cloud.png) 50% 50% / contain no-repeat'
-    }
-}
-
-export default {
+const styles = {
     container: {
         display: 'flex',
         flex: 0,
         flexDirection: 'column',
-        overflow: 'hidden',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(97, 177, 212, 1)',
@@ -66,5 +59,20 @@ export default {
     },
     buttonText: {
         color: 'black'
+    },
+    tripList {
+        justifyContent: 'flex-start'
     }
 }
+
+export const webOnly = {
+    bgImg: {
+        background: 'url(img/cloud.png) 50% 50% / contain no-repeat'
+    },
+    container: {
+        ...styles.container,
+        ...{overflow: 'hidden', overflowY: 'scroll'}
+    }
+}
+
+export default styles;
