@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Flights from './app/components/Flights';
-import { StartScreen, ItemList } from './app/components/web'
+import { StartScreen, TripList } from './app/components/web'
 
 ReactDOM.render(
-  <Flights comps={{ StartScreen, ItemList }}/>,
+  <Flights comps={{ StartScreen, TripList }}/>,
   document.getElementById('app')
 )

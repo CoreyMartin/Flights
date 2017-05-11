@@ -3,28 +3,6 @@ import React, { Component } from 'react';
 import { app } from '../constants';
 import styles, { webOnly } from '../styles';
 
-import flightData from '../data';
-
-window.flightData = flightData;
-
-var trips = [];
-
-flightData.trips.tripOption.forEach((tripOption, i) => {
-  /* let's just assume there's only one slice and one segment 
-     to keep things simple */
-  let trip = {},
-      segment = tripOption.slice[0].segment[0],
-      leg = segment.leg[0];
-  trip.duration = segment.duration;
-  trip.carrier = segment.flight.carrier;
-  trip.origin = leg.origin;
-  trip.destination = leg.destination;
-  trip.total = tripOption.saleTotal;
-  trips.push(trip);
-})
-
-console.log(trips);
-
 export class StartScreen extends Component {
   render() {
     return (
@@ -45,10 +23,11 @@ export class StartScreen extends Component {
   }
 }
 
-export class ItemList extends Component {
+export class TripList extends Component {
   render() {
+    const trips = this.props.trips;
     return (
-      <div style={webOnly.container}>
+      <div style={{...webOnly.container, ...styles.tripList}}>
         <Pg>We found {trips.length} flights!</Pg>
         {trips.map((trip, i) => <Trip trip={trip} key={i}/>)}
       </div>
@@ -56,24 +35,11 @@ export class ItemList extends Component {
   }
 }
 
-const s = {
-  trip: {
-    backgroundColor: 'white',
-    padding: 20,
-    marginTop: 20,
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: 300,
-    maxWidth: '100%',
-    minHeight: 100
-  }
-}
-
 export class Trip extends Component {
   render() {
     const trip = this.props.trip;
     return (
-      <div style={s.trip}>
+      <div style={styles.trip}>
         <div>{trip.origin} to {trip.destination}</div>
         <div>{trip.total.replace('USD', '$')}</div>
       </div>

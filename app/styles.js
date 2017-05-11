@@ -60,8 +60,19 @@ const styles = {
     buttonText: {
         color: 'black'
     },
-    tripList {
+    tripList: {
         justifyContent: 'flex-start'
+    },
+    trip: {
+        backgroundColor: 'white',
+        padding: 20,
+        marginTop: 20,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: 400,
+        maxWidth: '100%',
+        minHeight: 100,
     }
 }
 

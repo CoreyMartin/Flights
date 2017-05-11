@@ -38,11 +38,28 @@ export class StartScreen extends Component {
   }
 }
 
-export class ItemList extends Component {
+export class TripList extends Component {
   render() {
+    const trips = this.props.trips;
     return (
-      <View style={styles.container}>
-        <Text>Items!</Text>
+      <ScrollView>
+        <View style={[styles.container, styles.tripList]}>
+          <Text style={styles.heading}>We found {trips.length} flights!</Text>
+          {trips.map((trip, i) => <Trip trip={trip} key={i}/>)}
+        </View>
+      </ScrollView>
+    )
+  }
+}
+
+export class Trip extends Component {
+  render() {
+    const trip = this.props.trip;
+    return (
+      <View style={styles.trip}>
+        <Text>{trip.origin} to {trip.destination}</Text>
+        <Text>{trip.carrier}</Text>
+        <Text>{trip.total.replace('USD', '$')}</Text>
       </View>
     )
   }
